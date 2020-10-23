@@ -29,7 +29,30 @@ Examples::
 
 def is_anagram_of_palindrome(word):
     """Is the word an anagram of a palindrome?"""
-          
+    """
+    Iterate throught string
+    Store every char as a key with value of char in string
+    Get values from dictionary
+    If all values //2 = 0 or return True and just 1 value can be //2 != 0
+    else False
+    """
+
+    maping = {}
+
+    for char in word:
+        if char not in maping:
+            maping[char] = 0
+        maping[char]+= 1
+
+    values = maping.values()  
+
+    count = 0
+    for value in values:
+        if value//2 != 1:
+            count+= 1
+        if count > 1:
+            return False
+    return True             
 
 
 if __name__ == '__main__':
